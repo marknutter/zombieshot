@@ -3,7 +3,7 @@
 function OnGUI () {
 	// Make a background box
 //	GUI.Box (Rect (10,10,100,50), "Menu");
-	var terrain = GameObject.Find("Terrain");
+	var terrain = GameObject.Find("ClickCatch");
 
 	// Make the first button. If it is pressed, Application.Loadlevel (1) will be executed
 	if (GUI.Button (Rect (20,40,80,20), "Fire")) {
@@ -25,21 +25,34 @@ function OnGUI () {
 function EndTurn () {
 
 	var hero = GameObject.Find("Hero");
+	var ally = GameObject.Find("Ally");
+	
 
 	
-	Camera.main.transform.position.x = hero.transform.position.x;
-	Camera.main.transform.position.z = hero.transform.position.z - 5; 
-	
-	hero.SendMessage("Reset");
+	Camera.main.transform.position.x = ally.transform.position.x;
+	Camera.main.transform.position.z = ally.transform.position.z - 5; 
 	
 	var enemies = GameObject.FindGameObjectsWithTag("Enemy");
 	for (var enemy in enemies)
 			enemy.SendMessage("Die");
-			
+	
+	enemies = GameObject.FindGameObjectsWithTag("Enemy");		
 	for (var enemy in enemies)
 			enemy.SendMessage("TakeTurn");
+			
+	
+	
+	ally.SendMessage("Die");
+	hero.SendMessage("Die");
 
 	
+	hero = GameObject.Find("Hero");
+	ally = GameObject.Find("Ally");
+	
+	hero.name = "Ally";
+	ally.name = "Hero";
+
+	ally.SendMessage("Reset");
 
 }
 
@@ -49,9 +62,11 @@ public static function IsSquareOpen(square:Vector3) {
 	square.y = 5;
 	var hit: RaycastHit;
 	
-	if( Physics.Raycast(square,-Vector3.up,hit) ) {
+
 	
-		if(hit.point.y == 0)
+	if( Physics.Raycast(square,-Vector3.up,hit) ) {
+		
+		if(Mathf.Abs(hit.point.y) < 0.01)
 			return true;
 		else
 			return false;
@@ -59,5 +74,14 @@ public static function IsSquareOpen(square:Vector3) {
 	}
 	
 	return false;
+
+}
+
+public static function LineOfSight(start:Vector3,end:Vector3) {
+
+	start.y = 0.5;
+	end.y = 0.5;
+	
+	return !Physics.Raycast(start,end-start,(end-start).magnitude);
 
 }

@@ -1,7 +1,7 @@
 #pragma strict
 
 var Damage:float = 100;
-var Range:float = 10;
+var Range:float = 0;
 
 function Start () {
 
@@ -12,6 +12,7 @@ function Update () {
 }
 
 function FireWeapon (hitPoint : Vector3) {
+
 
 	if(gameObject.GetComponent(Movable).CanMove(20) )	{
 
