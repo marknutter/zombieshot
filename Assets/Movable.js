@@ -4,6 +4,7 @@ var MovePoints:int = 100;
 var RenderSpeed:float = 10;
 var TransformGoal:Vector3 = Vector3(0,0,0);
 var Transforming:boolean = false;
+var MoveCost:float = 20;
 
 function Start () {
 
@@ -39,7 +40,7 @@ function MoveC(hitPoint : Vector3) {
 		
 
 		if(HUD.IsSquareOpen(hitPoint)) {
-			if(CanMove(20 * distance)) {
+			if(CanMove(MoveCost * distance)) {
 				Transforming = true;
 				TransformGoal = hitPoint;
 	//		 	transform.position = hitPoint;

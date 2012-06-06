@@ -1,11 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Weapon.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Equipment.js">
     <Files>
-      <File FileName="Assets\Weapon.js" Line="15" Column="1" />
+      <File FileName="Assets\Equipment.js" Line="7" Column="31" />
       <File FileName="Assets\Damagable.js" Line="22" Column="8" />
-      <File FileName="Assets\ClickGround.js" Line="18" Column="11" />
-      <File FileName="Assets\Movable.js" Line="39" Column="3" />
+      <File FileName="Assets\Weapon.js" Line="14" Column="14" />
+      <File FileName="Assets\ClickGround.js" Line="37" Column="19" />
+      <File FileName="Assets\Movable.js" Line="43" Column="23" />
       <File FileName="Assets\AIMove.js" Line="6" Column="20" />
       <File FileName="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Light.shader" Line="1" Column="1" />
       <File FileName="Assets\Standard Assets\Projectors\Sources\Shaders\Projector Multiply.shader" Line="1" Column="1" />
