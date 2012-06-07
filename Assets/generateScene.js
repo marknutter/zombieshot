@@ -9,7 +9,7 @@ public var Zombie:GameObject;
 function Start () {
 //	Random.seed(DateTime.Now);
 
-	print(Random.Range(1,3));
+	print(Random.Range(1,10.0));
 
 	for(var i = 0; i < 3; i++)
 		for(var j = 0; j < 3; j++) {
